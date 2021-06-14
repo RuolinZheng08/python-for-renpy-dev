@@ -21,6 +21,14 @@ screen tutorial:
             textbutton 'Strings' action Jump('strings')
             textbutton 'Numbers' action Jump('numbers')
             textbutton 'Booleans' action Jump('booleans')
+            textbutton 'Lists' action Jump('lists')
+            textbutton 'Sets' action Jump('sets')
+            textbutton 'Dictionaries' action Jump('dictionaries')
+            textbutton 'Conditional' action Jump('conditional')
+            textbutton 'Loop' action Jump('loop')
+            textbutton 'Iterables' action Jump('iterables')
+            textbutton 'Functions' action Jump('functions')
+            textbutton 'Classes' action Jump('classes')
 
 label start:
 
