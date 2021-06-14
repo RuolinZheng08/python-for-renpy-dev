@@ -19,25 +19,29 @@ screen tutorial:
 
         vbox:
             textbutton 'Strings' action Jump('strings')
+            textbutton 'Numbers' action Jump('numbers')
+            textbutton 'Booleans' action Jump('booleans')
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene bg room
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
     show eileen happy
     show screen tutorial
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    # Lines that start with $ is intepreted as a Python statement
+    $ print('Hello World!')
+
+    python:
+        # Lines that start with # is a comment and won't be evaluated by Ren'Py or Python
+        print("Let's learn Python to power up our Ren'Py games")
+        print("Are you ready?")
+
+    # anything stored in persistent persists across game relaunches
+    $ persistent.player_name = 'Python newbie'
+
+    e "Welcome [persistent.player_name]. You've created a new Ren'Py game."
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
