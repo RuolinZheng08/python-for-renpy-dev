@@ -18,22 +18,24 @@ screen tutorial:
         add Solid('#f8f8ff')
 
         vbox:
-            textbutton 'Strings' action Jump('strings')
-            textbutton 'Numbers' action Jump('numbers')
-            textbutton 'Booleans' action Jump('booleans')
-            textbutton 'Lists' action Jump('lists')
-            textbutton 'Sets' action Jump('sets')
-            textbutton 'Dictionaries' action Jump('dictionaries')
-            textbutton 'Conditional' action Jump('conditional')
-            textbutton 'Loop' action Jump('loop')
-            textbutton 'Iterables' action Jump('iterables')
-            textbutton 'Functions' action Jump('functions')
-            textbutton 'Classes' action Jump('classes')
+            null height 20
+            textbutton 'Strings' action Jump('strings') left_padding 20
+            textbutton 'Numbers' action Jump('numbers') left_padding 20
+            textbutton 'Booleans' action Jump('booleans') left_padding 20
+            textbutton 'Lists' action Jump('lists') left_padding 20
+            textbutton 'Sets' action Jump('sets') left_padding 20
+            textbutton 'Dictionaries' action Jump('dictionaries') left_padding 20
+            textbutton 'Conditional' action Jump('conditional') left_padding 20
+            textbutton 'Loop' action Jump('loop') left_padding 20
+            textbutton 'Iterables' action Jump('iterables') left_padding 20
+            textbutton 'Functions' action Jump('functions') left_padding 20
+            textbutton 'Classes' action Jump('classes') left_padding 20
 
 label start:
 
     scene bg room
     show eileen happy
+    hide screen example # code snippet example
     show screen tutorial
 
     # These display lines of dialogue.

@@ -1,5 +1,7 @@
+#begin classes
 label classes:
     hide screen tutorial
+    show screen example('classes')
 
     python:
         class Animal():
@@ -48,3 +50,4 @@ label classes_choices:
         jump classes_choices
     else:
         jump start
+#end classes

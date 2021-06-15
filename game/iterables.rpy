@@ -1,9 +1,11 @@
 # We are going to cover a little bit of screen language here
+
+#begin iterables
 screen fruit_screen(fruit_list, fruit_set, fruit_colors):
     frame:
         xsize 640
         xalign .5
-        ysize 485
+        ysize 300
         ypos 30
 
         add Solid('#000') # black
@@ -29,6 +31,7 @@ screen fruit_screen(fruit_list, fruit_set, fruit_colors):
 
 label iterables:
     hide screen tutorial
+    show screen example('iterables')
 
     python:
         fruit_list = ['apple', 'banana', 'pear', 'orange']
@@ -42,4 +45,6 @@ label iterables:
 
     e "We have a screen of fruits!"
 
+    hide screen fruit_screen
     jump start
+#end iterables

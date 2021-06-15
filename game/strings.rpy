@@ -1,6 +1,9 @@
 label strings:
     hide screen tutorial
+    show screen example('strings')
 
+    # show code example as in the Ren'Py official tutorial
+    #begin strings
     $ string = "Learning Python for Ren'Py is fun!"
     e "I said: [string]"
 
@@ -12,5 +15,6 @@ label strings:
 
     $ string_uppercase = string.upper()
     e "I said: [string_uppercase]!!!!!"
+    #end strings
 
     jump start

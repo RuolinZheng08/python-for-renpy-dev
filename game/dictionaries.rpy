@@ -1,13 +1,14 @@
 label dictionaries:
     hide screen tutorial
+    show screen example('dictionaries')
 
+    #begin dictionaries
     python:
         grades = {'A': [90, 100], 
                   'B': [80, 89], 
                   'C': [70, 79], 
                   'D': [60, 69],
-                  'F': [0, 59]
-                  }
+                  'F': [0, 59]}
 
     menu:
         "What letter grade did you get on the midterm?"
@@ -26,5 +27,6 @@ label dictionaries:
     $ score_lower = score_range[0]
     $ score_upper = score_range[1]
     e "So you got a score between [score_lower] and [score_upper]."
+    #end dictionaries
 
     jump start

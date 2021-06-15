@@ -1,6 +1,8 @@
 label lists:
     hide screen tutorial
+    show screen example('lists')
 
+    #begin lists
     python:
         fruits = ['apple', 'banana', 'pear', 'apple']
         veggies = ['carrot', 'cabbage']
@@ -22,5 +24,6 @@ label lists:
         second_veggie_item = ingredients[1][1] # just to show you their equivalence
         last_veggie_item = veggies[-1]
     e "Our veggies are: [first_veggie_item], [second_veggie_item], [last_veggie_item]"
+    #end lists
 
     jump start

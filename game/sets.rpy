@@ -1,5 +1,7 @@
+#begin sets
 label sets:
     hide screen tutorial
+    show screen example('sets')
 
     python:
         fruit_list = ['apple', 'banana', 'pear', 'apple']
@@ -30,6 +32,8 @@ label sets_choices:
         "We have everything we need!":
             pass
 
+    $ num_fruit_types = len(fruit_set)
     e "We now have [num_fruit_types] types of fruits."
 
     jump start
+#end sets

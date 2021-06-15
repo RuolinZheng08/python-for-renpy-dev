@@ -1,13 +1,15 @@
 # Using functions really saves us a lot of repeated code
 # We have this pretty complex choice scenario coded up in just 50 lines :)
 
+#begin functions
 label functions:
     hide screen tutorial
+    show screen example('functions')
 
     python:
         def make_smoothie(fruit):
             procedures = []
-            procedures.append('Blending ' + fruit + 'in a blender...')
+            procedures.append('Blending ' + fruit + ' in a blender...')
             procedures.append('Adding milk...')
             procedures.append('Enjoy a delicious ' + fruit + ' smoothie!\n\n')
             return procedures
@@ -53,3 +55,4 @@ label functions_choices:
         jump functions_choices
     else:
         jump start
+#end functions

@@ -1,6 +1,8 @@
 label numbers:
     hide screen tutorial
+    show screen example('numbers')
 
+    #begin numbers
     $ player_health = 60
     e "Player health is currently: [player_health]"
     menu:
@@ -17,5 +19,6 @@ label numbers:
             e "Veggies? That's a super healthy choice!"
 
     e "Player health after dinner is: [player_health]"
+    #end numbers
 
     jump start

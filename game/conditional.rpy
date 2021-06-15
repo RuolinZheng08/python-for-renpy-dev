@@ -1,6 +1,8 @@
 label conditional:
     hide screen tutorial
+    show screen example('conditional')
 
+    #begin conditional
     e "How did you do on the midterm?"
 
     $ score = 95
@@ -26,5 +28,6 @@ label conditional:
         e "Let's study together for the final!"
     else:
         e "Looks like you are studying alone for the final."
+    #end conditional
 
     jump start

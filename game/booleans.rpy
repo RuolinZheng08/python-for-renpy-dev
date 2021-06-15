@@ -1,5 +1,7 @@
+#begin booleans
 label booleans:
     hide screen tutorial
+    show screen example('booleans')
 
     python:
         has_visited_park = False
@@ -30,3 +32,4 @@ label boolean_choices:
             jump boolean_choices
 
     jump start
+#end booleans
