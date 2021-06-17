@@ -5,7 +5,7 @@ label conditional:
     #begin conditional
     e "How did you do on the midterm?"
 
-    $ score = 95
+    $ score = 60
 
     if 90 <= score <= 100:
         e "You got an A! Congrats!"

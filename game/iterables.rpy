@@ -17,17 +17,20 @@ screen fruit_screen(fruit_list, fruit_set, fruit_colors):
                     text fruit
 
             vbox:
-                text 'Fruit Set'
+                text 'Fruit Set' color '#f00' # red text
                 for fruit in fruit_set:
-                    text fruit color '#f00' # red
+                    text fruit color '#f00' # red text
 
             vbox:
-                text 'Fruit-Color Dictionary'
-                for fruit in fruit_colors: # iterate over the keys
+                text 'Fruit Inventory'
+                for fruit in fruit_inventory: # iterate over the keys
                     # look up the key
-                    $ fruit_color = fruit_colors[fruit]
-                    text fruit color '#f00' # red
-                    text fruit_color
+                    $ fruit_quantity = fruit_inventory[fruit]
+                    hbox:
+                        text fruit
+                        null width 10
+                        # fruit_quantity is an integer so we convert it to string
+                        text str(fruit_quantity) color '#f00' # red text
 
 label iterables:
     hide screen tutorial
@@ -36,12 +39,12 @@ label iterables:
     python:
         fruit_list = ['apple', 'banana', 'pear', 'orange']
         fruit_set = set(['apple', 'banana', 'pear', 'orange'])
-        fruit_colors = {'apple': 'red', 
-                        'banana': 'yellow', 
-                        'pear': 'green', 
-                        'orange': 'orange'
+        fruit_inventory = {'apple': 2, 
+                        'banana': 0, 
+                        'pear': 3, 
+                        'orange': 1
                         }
-    show screen fruit_screen(fruit_list, fruit_set, fruit_colors)
+    show screen fruit_screen(fruit_list, fruit_set, fruit_inventory)
 
     e "We have a screen of fruits!"
 

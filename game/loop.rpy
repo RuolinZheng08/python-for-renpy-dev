@@ -7,8 +7,8 @@ label loop:
     e "Let's start the countdown from [countdown]."
 
     while countdown > 0:
-        $ countdown -= 1
         e "Countdown value: [countdown]"
+        $ countdown -= 1
 
     e "The end value of countdown is [countdown]"
     #end loop
