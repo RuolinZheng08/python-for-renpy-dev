@@ -1,6 +1,6 @@
 # Python Basics for Ren'Py Developers: A Udemy Course
 
-This is the course material for my Udemy course, [Python Basics for Ren'Py Developers](https://www.udemy.com/course/python-basics-for-renpy-developers/?referralCode=774C55606994052EBFCB). Even if you aren't taking the course, I hope you will find the content helpful! Check out [my YouTube promotional video](https://www.youtube.com/watch?v=pQcb_pfIbI0) or the free previews on Udemy to learn more.
+This is the course material for my Udemy course, [Python Basics for Ren'Py Developers](https://www.udemy.com/course/python-basics-for-renpy-developers/?referralCode=774C55606994052EBFCB). Even if you aren't taking the course, I hope you will find the content helpful! Check out [my YouTube promotional video](https://www.youtube.com/watch?v=pQcb_pfIbI0) or the free previews on Udemy to learn more. You can also find the material on [itch.io](https://r3dhummingbird.itch.io/python-basics-for-renpy-dev).
 
 ![Sample Course Material](https://github.com/RuolinZheng08/python-for-renpy-dev/blob/master/demo.png)
 
