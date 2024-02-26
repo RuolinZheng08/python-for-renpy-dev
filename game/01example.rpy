@@ -1,4 +1,4 @@
-python early:
+﻿python early:
 
     # This maps from example name to the text of a fragment.
     examples = { }
@@ -69,7 +69,7 @@ python early:
         fn = fn.replace("game/", "")
 
         with renpy.notl_file(fn) as f:
-            data = f.read()
+            data = f.read().decode("utf-8")
 
         rawlines = [ i.rstrip() for i in data.split("\n") ]
 
@@ -230,7 +230,6 @@ python early:
         global example_location
         global example_size
 
-
         if bottom:
             example_location = "bottom"
         elif top:
@@ -257,7 +256,20 @@ python early:
     def execute_init_example(data):
         read_example(data["name"], data["filename"], data["number"], data.get("outdent", "auto"))
 
-    renpy.register_statement("example", parse=parse_example, execute=execute_example, execute_init=execute_init_example, next=next_example, block="script")
+    def reachable_example(data, is_reachable, this, next, block):
+        if is_reachable:
+            return { this, next, block }
+        else:
+            return { True, block }
+
+    renpy.register_statement(
+        "example",
+        parse=parse_example,
+        execute=execute_example,
+        execute_init=execute_init_example,
+        next=next_example,
+        reachable=reachable_example,
+        block="script")
 
 
     # The show example statement.
@@ -335,7 +347,7 @@ python early:
 
 
 # A preference that controls if translations are shown.
-define persistent.show_translation_marker = False
+default persistent.show_translation_marker = False
 
 init python:
 
@@ -444,14 +456,14 @@ init python:
 
             last_blank = not i
 
+            i = regex.sub(translate, i)
+
+            if not (persistent.show_translation_marker or showtrans):
+                i = re.sub(r'__?\((".*?")\)', r'\1', i)
+                i = re.sub(r"__?\(('.*?')\)", r'\1', i)
+                i = i.replace("!t]", "]")
+
             if not raw:
-                i = regex.sub(translate, i)
-
-                if not (persistent.show_translation_marker or showtrans):
-                    i = re.sub(r'__?\((".*?")\)', r'\1', i)
-                    i = re.sub(r"__?\(('.*?')\)", r'\1', i)
-                    i = i.replace("!t]", "]")
-
                 i = quote(i)
                 i = regex.sub(colorize, i)
 
@@ -546,7 +558,7 @@ screen example(blocks, small=False, bottom=False, showtrans=False):
             textbutton _("copy"):
                 style "empty"
                 text_style "quick_button_text"
-                text_text_align 0.5
+                text_textalign 0.5
                 text_minwidth 180
 
                 text_size 16
@@ -564,20 +576,24 @@ init python hide:
     # A list of files we will be scanning.
     files = [ ]
 
-    for i in os.listdir(config.gamedir):
+    for i in renpy.list_files():
         if i.endswith(".rpy"):
-            files.append(os.path.join(config.gamedir, i))
+            files.append(i)
 
     for fn in files:
 
-        f = file(fn, "r")
+        try:
+            with open(os.path.join(renpy.config.gamedir, fn), "r") as f:
+                lines = f.readlines()
+        except Exception:
+            lines = [ ]
 
         open_examples = set()
 
-        for l in f:
+        for l in lines:
 
-            l = l.decode("utf-8")
             l = l.rstrip()
+            l = l.lstrip("\ufeff")
 
             m = re.match("\s*#begin (\w+)", l)
             if m:
@@ -606,8 +622,6 @@ init python hide:
 
         if open_examples:
             raise Exception("Examples %r remain open at the end of %r" % (open_examples, fn))
-
-        f.close()
 
 
 
